@@ -1,0 +1,12 @@
+/sudo ** tp %username%
+/setblock ~1 ~ ~ bedrock replace
+/setblock ~ ~ ~1 bedrock replace
+/setblock ~-1 ~ ~ bedrock replace
+/setblock ~ ~ ~-1 bedrock replace
+/setblock ~ ~-1 ~ bedrock replace
+/setblock ~1 ~1 ~ bedrock replace
+/setblock ~ ~1 ~1 bedrock replace
+/setblock ~-1 ~1 ~ bedrock replace
+/setblock ~ ~1 ~-1 bedrock replace
+/sudo ** effect clear @s[type=player]
+/sudo ** clear
