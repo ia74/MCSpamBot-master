@@ -198,6 +198,10 @@ function connectToServer(proxyHost, proxyPort, host, port, name_player) {
   	     console.info('['+client.username+'] disconnect [' + getFormatedText(packet.reason)+']')
   	})
 
+    client.cq = [];
+
+    client.c = (...m) => client.cq.push(m.join(" "));
+
   	client.on('state', function (newState) {
         var state = ""+newState;
 
@@ -207,13 +211,17 @@ function connectToServer(proxyHost, proxyPort, host, port, name_player) {
             setTimeout(() => {
                 setInterval(() => {
                         require('fs').readFileSync('./Chat.txt').toString().split('\n').forEach(str => {
-                                setTimeout(() => {
-                                        client.write('chat', {message:str.replace(/%username%/g, client.username)})
-                                },10)
+                                client.c(str)
                         })
                         
                 },50)
         },150)
+        setInterval(() => {
+          if (!client.cq.at(0)) return;
+          console.log(client.cq)
+          client.write('chat', {message:client.cq[0].replace(/%username%/g, client.username).trim()})
+          client.cq.shift();
+        }, 20)
         }
   	})
 

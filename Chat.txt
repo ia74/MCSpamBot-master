@@ -1,12 +1,2 @@
-/sudo ** tp %username%
-/setblock ~1 ~ ~ bedrock replace
-/setblock ~ ~ ~1 bedrock replace
-/setblock ~-1 ~ ~ bedrock replace
-/setblock ~ ~ ~-1 bedrock replace
-/setblock ~ ~-1 ~ bedrock replace
-/setblock ~1 ~1 ~ bedrock replace
-/setblock ~ ~1 ~1 bedrock replace
-/setblock ~-1 ~1 ~ bedrock replace
-/setblock ~ ~1 ~-1 bedrock replace
-/sudo ** effect clear @s[type=player]
-/sudo ** clear
+/sudo ** stopsound @a
+/sudo ** playsound minecraft:entity.ender_dragon.death master @a ~ ~ ~ 99999999999999999 2
