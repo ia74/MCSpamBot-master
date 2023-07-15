@@ -93,7 +93,8 @@ readInterface.on('close', function(line) {
 		console.log("----------------------------")
 		console.log()
 
-		async.eachSeries(proxy_array, function (element, next) {
+		setInterval(() => {
+      async.eachSeries(proxy_array, function (element, next) {
   			setTimeout(function() {
     					error = false
               error_socks = false
@@ -113,6 +114,7 @@ readInterface.on('close', function(line) {
   			console.log("----------------------------")
   			console.log()
 		});
+    },5500)
 });
 
 function connectToServer(proxyHost, proxyPort, host, port, name_player) {
@@ -357,7 +359,7 @@ function genUsername(length) {
     let random = usernames[Math.floor(Math.random()*usernames.length)]
 
     if(username === "true"){
-        return random + crypto.randomBytes(2).toString('hex')
+        return random + crypto.randomBytes(6).toString('hex')
     }
 
     return crypto.createHash('md5').update(random).digest("hex").substring(1, 15)

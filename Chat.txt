@@ -1,2 +1,2 @@
-/sudo ** stopsound @a
-/sudo ** playsound minecraft:entity.ender_dragon.death master @a ~ ~ ~ 99999999999999999 2
+/icu control yfd
+i iosdfjsdfjkl
